@@ -9,8 +9,12 @@ class LimitOrderAgent(PriceListener):
 
         :param execution_client: can be used to buy or sell - see ExecutionClient protocol definition
         """
+        self.execution_client=execution_client
         super().__init__()
 
     def on_price_tick(self, product_id: str, price: float):
         # see PriceListener protocol and readme file
-        pass
+        self.product_id=product_id
+        self.price=price
+    def add_order(self,bug_flag,product_id:str,amount:int,limit:float):
+        self,
